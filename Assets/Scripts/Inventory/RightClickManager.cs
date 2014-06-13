@@ -36,4 +36,15 @@ public class RightClickManager : MonoBehaviour {
 			m.item = _itemSlot.item;
 		}
 	}
+
+	public void Clear()
+	{
+		if(_tempRightClick != null)
+		{
+			NGUITools.Destroy(_tempRightClick);
+			_tempRightClick = null;
+		}
+
+		_itemSlot = null;
+	}
 }

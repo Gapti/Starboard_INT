@@ -25,6 +25,8 @@ public abstract class ItemSlot : MonoBehaviour {
 
 	void OnClick() 
 	{
+		RightClickManager.instance.Clear();
+
 		if(item != null)
 		{
 			if(UICamera.currentTouchID == -2)
@@ -131,11 +133,7 @@ public abstract class ItemSlot : MonoBehaviour {
 		ClearDraggedItem();
 		UpdateCursor();
 	}
-
-	void OnTooptip(bool show)
-	{
-
-	}
+	
 
 	void ClearDraggedItem()
 	{

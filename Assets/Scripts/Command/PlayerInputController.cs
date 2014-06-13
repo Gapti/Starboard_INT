@@ -46,6 +46,7 @@ public class OpenInventoryCommand : ICommand
 
 	public void ExecuteCommand()
 	{
+		RightClickManager.instance.Clear();
 		InventoryOwner.GetComponent<ItemStorage>().ToggleMyGUI();
 	}
 }
