@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMisc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Misc>
+    <id>0</id>
+    <ItemName>Potion</ItemName>
+    <Stackable>true</Stackable>
+    <MaxStack>2</MaxStack>
+    <Type>Misc</Type>
+    <ItemGameObject />
+    <Atlas>UIElements</Atlas>
+    <ItemSprite>potion</ItemSprite>
+    <Description>This is a potion</Description>
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+  </Misc>
+  <Misc>
+    <id>1</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>Misc</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+  </Misc>
+</ArrayOfMisc>

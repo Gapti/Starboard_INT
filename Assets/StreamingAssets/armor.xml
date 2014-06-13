@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfArmor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Armor>
+    <id>0</id>
+    <ItemName>Vest</ItemName>
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>Armor</Type>
+    <ItemGameObject />
+    <Atlas>UIElements</Atlas>
+    <ItemSprite>sand</ItemSprite>
+    <Description>This is a Vest</Description>
+    <Slot>Chest</Slot>
+    <StackAmount>1</StackAmount>
+    <Category>LightArmor</Category>
+    <ArmorValue>10</ArmorValue>
+    <DefenseValue>10</DefenseValue>
+  </Armor>
+  <Armor>
+    <id>1</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>Armor</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+    <Category>LightArmor</Category>
+    <ArmorValue>0</ArmorValue>
+    <DefenseValue>0</DefenseValue>
+  </Armor>
+</ArrayOfArmor>

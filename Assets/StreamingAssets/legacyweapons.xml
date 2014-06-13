@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLegacyWeapon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LegacyWeapon>
+    <id>0</id>
+    <ItemName>Axe</ItemName>
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>LegacyWeapon</Type>
+    <ItemGameObject>Axe</ItemGameObject>
+    <Atlas>UIElements</Atlas>
+    <ItemSprite>axe_one</ItemSprite>
+    <Description>This is a axe</Description>
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+    <MinDamage>1</MinDamage>
+    <MaxDamage>2</MaxDamage>
+    <MinRange>0</MinRange>
+    <MaxRange>3</MaxRange>
+    <CriticalStrike>4</CriticalStrike>
+    <ReloadTime>5</ReloadTime>
+  </LegacyWeapon>
+  <LegacyWeapon>
+    <id>1</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>LegacyWeapon</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+    <MinDamage>0</MinDamage>
+    <MaxDamage>0</MaxDamage>
+    <MinRange>0</MinRange>
+    <MaxRange>0</MaxRange>
+    <CriticalStrike>0</CriticalStrike>
+    <ReloadTime>0</ReloadTime>
+  </LegacyWeapon>
+</ArrayOfLegacyWeapon>

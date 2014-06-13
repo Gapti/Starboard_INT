@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEnhancer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enhancer>
+    <id>0</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>Enhancer</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+  </Enhancer>
+  <Enhancer>
+    <id>1</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>Enhancer</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+  </Enhancer>
+  <Enhancer>
+    <id>2</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>Enhancer</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+  </Enhancer>
+</ArrayOfEnhancer>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMagneticWeapon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MagneticWeapon>
+    <id>0</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>MagneticWeapon</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+    <MinDamage>0</MinDamage>
+    <MaxDamage>0</MaxDamage>
+    <MinRange>0</MinRange>
+    <MaxRange>0</MaxRange>
+    <CriticalStrike>0</CriticalStrike>
+    <BatteryRecharge>0</BatteryRecharge>
+  </MagneticWeapon>
+  <MagneticWeapon>
+    <id>1</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>MagneticWeapon</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+    <MinDamage>0</MinDamage>
+    <MaxDamage>0</MaxDamage>
+    <MinRange>0</MinRange>
+    <MaxRange>0</MaxRange>
+    <CriticalStrike>0</CriticalStrike>
+    <BatteryRecharge>0</BatteryRecharge>
+  </MagneticWeapon>
+</ArrayOfMagneticWeapon>

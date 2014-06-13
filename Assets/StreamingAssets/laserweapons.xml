@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLaserWeapon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LaserWeapon>
+    <id>0</id>
+    <ItemName>LaserGun</ItemName>
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>LaserWeapon</Type>
+    <ItemGameObject>Axe</ItemGameObject>
+    <Atlas>UIElements</Atlas>
+    <ItemSprite>ps2_gun</ItemSprite>
+    <Description>A laser gun</Description>
+    <Slot>Hands</Slot>
+    <StackAmount>1</StackAmount>
+    <MinDamage>2</MinDamage>
+    <MaxDamage>2</MaxDamage>
+    <MinRange>1</MinRange>
+    <MaxRange>1</MaxRange>
+    <CriticalStrike>2</CriticalStrike>
+    <CoolDownTime>2</CoolDownTime>
+  </LaserWeapon>
+  <LaserWeapon>
+    <id>3</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>LaserWeapon</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+    <MinDamage>0</MinDamage>
+    <MaxDamage>0</MaxDamage>
+    <MinRange>0</MinRange>
+    <MaxRange>0</MaxRange>
+    <CriticalStrike>0</CriticalStrike>
+    <CoolDownTime>0</CoolDownTime>
+  </LaserWeapon>
+  <LaserWeapon>
+    <id>4</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>LaserWeapon</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+    <MinDamage>0</MinDamage>
+    <MaxDamage>0</MaxDamage>
+    <MinRange>0</MinRange>
+    <MaxRange>0</MaxRange>
+    <CriticalStrike>0</CriticalStrike>
+    <CoolDownTime>0</CoolDownTime>
+  </LaserWeapon>
+</ArrayOfLaserWeapon>

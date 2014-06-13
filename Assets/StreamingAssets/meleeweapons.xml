@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMelee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Melee>
+    <id>0</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>Melee</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+    <MinDamage>0</MinDamage>
+    <MaxDamage>0</MaxDamage>
+    <MinRange>0</MinRange>
+    <MaxRange>0</MaxRange>
+    <CriticalStrike>0</CriticalStrike>
+    <Exhaustion>0</Exhaustion>
+  </Melee>
+  <Melee>
+    <id>1</id>
+    <ItemName />
+    <Stackable>false</Stackable>
+    <MaxStack>0</MaxStack>
+    <Type>Melee</Type>
+    <ItemGameObject />
+    <Atlas />
+    <ItemSprite />
+    <Description />
+    <Slot>None</Slot>
+    <StackAmount>1</StackAmount>
+    <MinDamage>0</MinDamage>
+    <MaxDamage>0</MaxDamage>
+    <MinRange>0</MinRange>
+    <MaxRange>0</MaxRange>
+    <CriticalStrike>0</CriticalStrike>
+    <Exhaustion>0</Exhaustion>
+  </Melee>
+</ArrayOfMelee>
