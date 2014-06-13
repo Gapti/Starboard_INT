@@ -7,8 +7,8 @@ public class RightClickManager : MonoBehaviour {
 
 	public GameObject RightClickPrefab;
 
-	public GameObject TempRightClick;
-	public ItemSlot _itemSlot;
+	private GameObject _tempRightClick;
+	private ItemSlot _itemSlot;
 
 	private Camera _camera;
 
@@ -27,12 +27,12 @@ public class RightClickManager : MonoBehaviour {
 		pos.x = Mathf.Clamp01(pos.x / Screen.width);
 		pos.y = Mathf.Clamp01(pos.y / Screen.height);
 
-		if(TempRightClick == null)
+		if(_tempRightClick == null)
 		{
 			_itemSlot = itemSlot;
-			TempRightClick = NGUITools.AddChild(this.gameObject.transform.parent.gameObject, RightClickPrefab);
-			TempRightClick.transform.position = _camera.ViewportToWorldPoint(pos);
-			RightClickMaker m = TempRightClick.GetComponent<RightClickMaker>();
+			_tempRightClick = NGUITools.AddChild(this.gameObject.transform.parent.gameObject, RightClickPrefab);
+			_tempRightClick.transform.position = _camera.ViewportToWorldPoint(pos);
+			RightClickMaker m = _tempRightClick.GetComponent<RightClickMaker>();
 			m.item = _itemSlot.item;
 		}
 	}
