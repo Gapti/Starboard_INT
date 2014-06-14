@@ -113,6 +113,9 @@ public abstract class ItemSlot : MonoBehaviour {
 
 	void OnDrag(Vector2 delta)
 	{
+
+		RightClickManager.instance.Clear();
+
 		if (item != null)
 		{
 			UICamera.currentTouch.clickNotification = UICamera.ClickNotification.BasedOnDelta;

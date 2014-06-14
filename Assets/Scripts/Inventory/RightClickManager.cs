@@ -33,7 +33,7 @@ public class RightClickManager : MonoBehaviour {
 			_tempRightClick = NGUITools.AddChild(this.gameObject.transform.parent.gameObject, RightClickPrefab);
 			_tempRightClick.transform.position = _camera.ViewportToWorldPoint(pos);
 			RightClickMaker m = _tempRightClick.GetComponent<RightClickMaker>();
-			m.item = _itemSlot.item;
+			m.Make(_itemSlot.item);
 		}
 	}
 

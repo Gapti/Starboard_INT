@@ -3,24 +3,40 @@ using System.Collections;
 
 public class RightClickMaker : MonoBehaviour {
 
-	public Item _item;
+	public GameObject UseButton;
+	public GameObject DropButton;
+	public GameObject EquipButton;
+	public GameObject SplitButton;
 
-	public Item item
+
+	public void Make(Item item)
 	{
-		set
+		switch(item.Type)
 		{
-			_item = value;
+		case ItemType.Armor:
+			SetArmorButtons(item);
+			break;
+		case ItemType.Consumable:
+			SetConsumable(item);
+			break;
+		case ItemType.Enhancer:
+			SetEnhancer(item);
+			break;
 		}
 	}
 
-
-	// Use this for initialization
-	void Start () {
-	
+	void SetArmorButtons (Item item)
+	{
+		throw new System.NotImplementedException ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void SetConsumable (Item item)
+	{
+		throw new System.NotImplementedException ();
+	}
+
+	void SetEnhancer (Item item)
+	{
+		throw new System.NotImplementedException ();
 	}
 }
