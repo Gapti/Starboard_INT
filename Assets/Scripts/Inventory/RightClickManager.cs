@@ -22,6 +22,7 @@ public class RightClickManager : MonoBehaviour {
 
 	public void Show(ItemSlot itemSlot)
 	{
+
 		Vector3 pos = Input.mousePosition;
 
 		pos.x = Mathf.Clamp01(pos.x / Screen.width);
@@ -33,7 +34,7 @@ public class RightClickManager : MonoBehaviour {
 			_tempRightClick = NGUITools.AddChild(this.gameObject.transform.parent.gameObject, RightClickPrefab);
 			_tempRightClick.transform.position = _camera.ViewportToWorldPoint(pos);
 			RightClickMaker m = _tempRightClick.GetComponent<RightClickMaker>();
-			m.Make(_itemSlot.item);
+			m.Make(_itemSlot);
 		}
 	}
 
