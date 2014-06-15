@@ -16,6 +16,7 @@ public class PlayerInputController : MonoBehaviour
 {
 	public List<KeyValuePair<KeyCode, ICommand>> InputCommands =  new List<KeyValuePair<KeyCode, ICommand>>();
 
+
 	void Start()
 	{
 		InputCommands.Add(new KeyValuePair<KeyCode, ICommand>(KeyCode.I, new OpenInventoryCommand(transform.gameObject)));
@@ -44,7 +45,7 @@ public class OpenInventoryCommand : ICommand
 	}
 
 	public void ExecuteCommand()
-	{	
+	{
 		RightClickManager.instance.Clear();
 		InventoryOwner.GetComponent<ItemStorage>().ToggleMyGUI();
 	}

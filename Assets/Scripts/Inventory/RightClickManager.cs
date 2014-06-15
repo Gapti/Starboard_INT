@@ -48,25 +48,4 @@ public class RightClickManager : MonoBehaviour {
 
 		_itemSlot = null;
 	}
-
-	public void Use()
-	{
-
-	}
-
-	public void Drop()
-	{
-		_itemSlot.DropItem();
-		Clear();
-	}
-
-	public void Equip()
-	{
-
-	}
-
-	public void Unequip()
-	{
-
-	}
 }
