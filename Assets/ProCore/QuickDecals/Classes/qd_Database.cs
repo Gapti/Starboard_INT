@@ -9,7 +9,7 @@ using System.IO;
 [System.Serializable]
 public class qd_Database : ScriptableObject
 {
-	public static Shader DefaultShader { get { return Shader.Find("Decal"); } }
+	public static Shader DefaultShader { get { return Shader.Find("Transparent/Diffuse"); } }
 	const string DECALSHEETS_PATH = "Assets/ProCore/QuickDecals/DecalSheets/";
 
 #region Private Members
@@ -260,7 +260,7 @@ public class qd_Database : ScriptableObject
 
 		AssetDatabase.Refresh();
 
-		decalGroups[index].material.SetTexture("_DecalTex", (Texture2D)AssetDatabase.LoadAssetAtPath(pngPath, typeof(Texture2D)));
+		decalGroups[index].material.mainTexture = (Texture2D)AssetDatabase.LoadAssetAtPath(pngPath, typeof(Texture2D));
 
 		return true;
 #else

@@ -1,10 +1,16 @@
--- QuickDecals 2.0.3 -
+-- QuicKDecals 2.0.4 -
+
+# Bug Fixes
+	- Enable Shift+Right Click shortcut on Mac.
+	- Fix bug where Ctrl-Shift-Click on Mac would prevent SceneView interaction.
+	- Fix NullRef when first object dragged to new QuickDecals window is not a Texture2D type.
+
+-- QuicKDecals 2.0.3 -
 
 # Bug Fixes	
 	- Fix compile errors when building project.
-	- Default to 'Decal' shader when atlasing groups.
 
--- QuickDecals 2.0.0 -
+-- QuicKDecals 2.0.0 -
 
 # Features
 	- Completely redesigned interface, featuring:

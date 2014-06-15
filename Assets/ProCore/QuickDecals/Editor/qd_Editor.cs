@@ -860,13 +860,17 @@ public class qd_Editor : EditorWindow
 
 				List<Decal> imgs = new List<Decal>();
 				
-				foreach(Texture2D img in DragAndDrop.objectReferences)
+				foreach(Object img in DragAndDrop.objectReferences)
 				{
-					if(!decalGroups.Exists(element => element.ContainsTexture(img)))
-						imgs.Add(new Decal(img));
+					if(img is Texture2D)
+					{
+						if(decalGroups == null || !decalGroups.Exists(element => element.ContainsTexture((Texture2D)img)))
+							imgs.Add(new Decal((Texture2D)img));
+					}
 				}
 
-				PerformDragDrop(imgs, mouseOver_groupIndex, mouseOver_textureIndex);
+				if(imgs.Count > 0)
+					PerformDragDrop(imgs, mouseOver_groupIndex, mouseOver_textureIndex);
 
 				return true;
 			}
@@ -1111,7 +1115,8 @@ public class qd_Editor : EditorWindow
 		Event e = Event.current;
 
 		#if UNITY_STANDALONE_OSX
-		if(e.modifiers != (EventModifiers.Shift | EventModifiers.Control))
+		EventModifiers em = e.modifiers;	// Took me longer than I care to admit to figure out that the `&=` was eating the event.
+		if( (em &= EventModifiers.Shift) != EventModifiers.Shift )
 			return;
 
 		int controlID = EditorGUIUtility.GetControlID(FocusType.Passive);
@@ -1119,11 +1124,12 @@ public class qd_Editor : EditorWindow
 		#endif
 
 		#if UNITY_STANDALONE_OSX
-		if(e.type == EventType.MouseUp)
+		if( e.type == EventType.MouseUp && ((e.button == RIGHT_MOUSE_BUTTON && e.modifiers == EventModifiers.Shift) || (e.modifiers == (EventModifiers.Shift | EventModifiers.Control))) )
 		#else
 		if(e.type == EventType.MouseUp && e.button == RIGHT_MOUSE_BUTTON && e.modifiers == EventModifiers.Shift)
 		#endif
 		{
+
 			if(selected.Count < 1 || decalView == DecalView.Atlas) return;
 
 			int key = selected.Keys.ToList()[(int)Random.Range(0, selected.Count)];
