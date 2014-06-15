@@ -1,0 +1,80 @@
+fileFormatVersion: 2
+guid: 5482c1e50b0e32d4e8b026a09a7aa45b
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Chair_arm_l
+    100002: Chair_arm_r
+    100004: Couch
+    100006: //RootNode
+    400000: Chair_arm_l
+    400002: Chair_arm_r
+    400004: Couch
+    400006: //RootNode
+    2300000: Chair_arm_l
+    2300002: Chair_arm_r
+    2300004: Couch
+    3300000: Chair_arm_l
+    3300002: Chair_arm_r
+    3300004: Couch
+    4300000: Chair_arm_r
+    4300002: Chair_arm_l
+    4300004: Couch
+    6400000: Chair_arm_l
+    6400002: Chair_arm_r
+    6400004: Couch
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .400000006
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
