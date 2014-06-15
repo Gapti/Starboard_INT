@@ -76,8 +76,7 @@ public class RightClickMaker : MonoBehaviour {
 			EquipButton.SetActive(true);
 			UnequipButton.SetActive(false);
 		}
-		else
-			if(type == typeof(EquipmentSlot))
+		else if(type == typeof(EquipmentSlot))
 		{
 			EquipButton.SetActive(false);
 			UnequipButton.SetActive(true);
