@@ -64,11 +64,7 @@ public abstract class ItemSlot : MonoBehaviour {
 
 		if(surface == null)
 		{
-			///destroy item dropped
-			/// 
-			DraggedFromSlot.Replace (null);
-			ClearDraggedItem();
-			UpdateCursor();
+			DropItem();
 		}
 		else
 		if(surface.name == "BackCollider")
@@ -109,6 +105,13 @@ public abstract class ItemSlot : MonoBehaviour {
 				Replace(null);
 			}
 		}
+	}
+
+	public void DropItem ()
+	{
+		Replace (null);
+		ClearDraggedItem();
+		UpdateCursor();
 	}
 
 	void OnDrag(Vector2 delta)
