@@ -64,11 +64,7 @@ public abstract class ItemSlot : MonoBehaviour {
 
 		if(surface == null)
 		{
-			///destroy item dropped
-			/// 
-			DraggedFromSlot.Replace (null);
-			ClearDraggedItem();
-			UpdateCursor();
+			DropItem();
 		}
 		else
 		if(surface.name == "BackCollider")
@@ -111,8 +107,18 @@ public abstract class ItemSlot : MonoBehaviour {
 		}
 	}
 
+	public void DropItem ()
+	{
+		Replace (null);
+		ClearDraggedItem();
+		UpdateCursor();
+	}
+
 	void OnDrag(Vector2 delta)
 	{
+
+		RightClickManager.instance.Clear();
+
 		if (item != null)
 		{
 			UICamera.currentTouch.clickNotification = UICamera.ClickNotification.BasedOnDelta;
