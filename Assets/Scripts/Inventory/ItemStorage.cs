@@ -43,7 +43,6 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 
 		Items[3] = Database.Get(ItemType.Misc, 0);
 		Items[4] = Database.Get(ItemType.Misc, 0);
-		Items[5] = Database.Get(ItemType.Armor, 0);
 
 		//ToggleMyGUI(GUIGroup);
 	}
