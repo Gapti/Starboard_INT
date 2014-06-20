@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 public enum SlotType
 {
-	None,
-	Chest,
-	Helm,
-	Legs,
-	Hands,
-	Feet,
-	Weapon
+	None = 0,
+	Chest =  1,
+	Helm = 2,
+	Legs = 3,
+	Hands = 4,
+	Feet = 5,
+	Weapon = 6
 }
 
 public enum ItemType
