@@ -107,6 +107,25 @@ public abstract class ItemSlot : MonoBehaviour {
 		}
 	}
 
+	public void Equip()
+	{
+		///check what player am i 
+		GameObject playerFind = _playerInventory.gameObject;
+
+		Equipment e = playerFind.GetComponent<Equipment> ();
+
+		DraggedItem = item;
+		DraggedFromSlot = this;
+
+		if (e.RightClickEquip(item)) 
+		{
+			DraggedFromSlot.Replace(DraggedItem);
+			ClearDraggedItem();
+			UpdateCursor();
+		}
+
+	}
+
 	public void DropItem ()
 	{
 		Replace (null);

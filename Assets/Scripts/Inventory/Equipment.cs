@@ -5,7 +5,7 @@ public class Equipment : MonoBehaviour {
 
 	public Item[] items;
 	public GameObject EquipmentPrefab;
-	private GameObject _GUIRef;
+	public GameObject _GUIRef;
 	private bool _showGUI = false;
 	const GUIGroups GUIGroup = GUIGroups.Charactor;
 
@@ -66,6 +66,14 @@ public class Equipment : MonoBehaviour {
 
 			return true;
 		}
+
+		return false;
+	}
+
+	public bool RightClickEquip(Item item)
+	{
+
+		print ("not yet done");
 
 		return false;
 	}

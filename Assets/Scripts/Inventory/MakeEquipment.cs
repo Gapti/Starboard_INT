@@ -14,4 +14,9 @@ public class MakeEquipment : MonoBehaviour {
 		}
 	}
 
+	public void CloseMyWindow()
+	{
+		equipment.ToggleMyGUI ();
+	}
+
 }
