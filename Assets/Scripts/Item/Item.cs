@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public enum SlotType
 {
 	None,
-	Helm,
 	Chest,
+	Helm,
 	Legs,
 	Hands,
 	Feet,

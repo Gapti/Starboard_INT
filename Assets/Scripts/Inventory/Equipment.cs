@@ -9,11 +9,9 @@ public class Equipment : MonoBehaviour {
 	private bool _showGUI = false;
 	const GUIGroups GUIGroup = GUIGroups.Charactor;
 
-
-	// Use this for initialization
-	void Start () {
-		items = new Item[4];
-
+	void Start()
+	{
+		items = new Item[7];
 	}
 
 	public void ToggleMyGUI ()
@@ -72,8 +70,21 @@ public class Equipment : MonoBehaviour {
 
 	public bool RightClickEquip(Item item)
 	{
+		int t = (int)SlotType.Weapon + 1;
 
-		print ("not yet done");
+		for (int i = 1; i < t; i++) 
+		{
+			SlotType s = (SlotType)i;
+
+			print (s + " " + item.Slot);
+
+			if(item.Slot == s)
+			{
+				print (i);
+				items[i] = item;
+					return true;
+			}
+		}
 
 		return false;
 	}

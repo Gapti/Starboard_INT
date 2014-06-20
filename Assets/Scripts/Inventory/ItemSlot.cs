@@ -17,11 +17,7 @@ public abstract class ItemSlot : MonoBehaviour {
 	abstract protected bool AddToPlayersInventory(Item item);
 
 	protected ItemStorage _playerInventory;
-	
-	void Awake()
-	{
-		_playerInventory =(ItemStorage) GameObject.FindGameObjectWithTag("Player").GetComponent<ItemStorage>();
-	}
+
 
 	void OnClick() 
 	{
@@ -109,20 +105,21 @@ public abstract class ItemSlot : MonoBehaviour {
 
 	public void Equip()
 	{
-		///check what player am i 
-		GameObject playerFind = _playerInventory.gameObject;
-
-		Equipment e = playerFind.GetComponent<Equipment> ();
-
-		DraggedItem = item;
-		DraggedFromSlot = this;
-
-		if (e.RightClickEquip(item)) 
+		StorageSlot s = this as StorageSlot;
+		if (s != null) 
 		{
-			DraggedFromSlot.Replace(DraggedItem);
-			ClearDraggedItem();
-			UpdateCursor();
+			Equipment e = s.inventory.gameObject.GetComponent<Equipment>();
+
+			if (e.RightClickEquip(item)) 
+			{
+				Replace(null);
+				ClearDraggedItem();
+				UpdateCursor();
+			}
 		}
+		
+
+
 
 	}
 
