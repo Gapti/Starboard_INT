@@ -19,6 +19,7 @@ public class StorageSlotMaker : MonoBehaviour {
 	public void CloseMyWindow()
 	{
 		_itemStorage.ToggleMyGUI ();
+		RightClickManager.instance.Clear ();
 	}
 
 	public void BuildSlots(int SlotAmount, ItemStorage storage, string windowTitle)
