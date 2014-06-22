@@ -5,15 +5,13 @@ public class Equipment : MonoBehaviour {
 
 	public Item[] items;
 	public GameObject EquipmentPrefab;
-	private GameObject _GUIRef;
+	public GameObject _GUIRef;
 	private bool _showGUI = false;
 	const GUIGroups GUIGroup = GUIGroups.Charactor;
 
-
-	// Use this for initialization
-	void Start () {
-		items = new Item[4];
-
+	void Start()
+	{
+		items = new Item[7];
 	}
 
 	public void ToggleMyGUI ()
@@ -65,6 +63,26 @@ public class Equipment : MonoBehaviour {
 			items[index] = item;
 
 			return true;
+		}
+
+		return false;
+	}
+
+	public bool RightClickEquip(Item item)
+	{
+		int t = (int)SlotType.Weapon + 1;
+
+		for (int i = 1; i < t; i++) 
+		{
+			SlotType s = (SlotType)i;
+
+			print (s + " " + item.Slot);
+
+			if(item.Slot == s)
+			{
+				items[i - 1] = item;
+					return true;
+			}
 		}
 
 		return false;

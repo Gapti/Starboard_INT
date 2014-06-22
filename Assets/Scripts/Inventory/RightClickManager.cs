@@ -62,7 +62,8 @@ public class RightClickManager : MonoBehaviour {
 
 	public void Equip()
 	{
-
+		_itemSlot.Equip ();
+		Clear ();
 	}
 
 	public void Unequip()

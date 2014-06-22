@@ -711,8 +711,19 @@ static public class NGUITools
 	{
 		// Find the existing UI Root
 		UIRoot root = (trans != null) ? NGUITools.FindInParents<UIRoot>(trans.gameObject) : null;
-		if (root == null && UIRoot.list.Count > 0)
-			root = UIRoot.list[0];
+		if (root == null && UIRoot.list.Count > 0) root = UIRoot.list[0];
+
+		// If we are working with a different UI type, we need to treat it as a brand-new one instead
+		if (root != null)
+		{
+			UICamera cam = root.GetComponentInChildren<UICamera>();
+
+			if (cam != null && cam.camera.isOrthoGraphic == advanced3D)
+			{
+				trans = null;
+				root = null;
+			}
+		}
 
 		// If no root found, create one
 		if (root == null)
@@ -1357,7 +1368,11 @@ static public class NGUITools
 
 	static public T AddMissingComponent<T> (this GameObject go) where T : Component
 	{
+#if UNITY_FLASH
+		object comp = go.GetComponent<T>();
+#else
 		T comp = go.GetComponent<T>();
+#endif
 		if (comp == null)
 		{
 #if UNITY_EDITOR
@@ -1366,7 +1381,11 @@ static public class NGUITools
 #endif
 			comp = go.AddComponent<T>();
 		}
+#if UNITY_FLASH
+		return (T)comp;
+#else
 		return comp;
+#endif
 	}
 
 	// Temporary variable to avoid GC allocation
@@ -1477,6 +1496,7 @@ static public class NGUITools
 		return string.IsNullOrEmpty(method) ? type : type + "/" + method;
 	}
 
+#if UNITY_EDITOR || !UNITY_FLASH
 	/// <summary>
 	/// Execute the specified function on the target game object.
 	/// </summary>
@@ -1521,4 +1541,5 @@ static public class NGUITools
 		ExecuteAll<UIPanel>(root, "Update");
 		ExecuteAll<UIPanel>(root, "LateUpdate");
 	}
+#endif
 }

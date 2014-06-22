@@ -1,7 +1,7 @@
 ----------------------------------------------
             NGUI: Next-Gen UI kit
  Copyright © 2011-2014 Tasharen Entertainment
-            Version 3.6.4
+            Version 3.6.5
     http://www.tasharen.com/?page_id=197
             support@tasharen.com
 ----------------------------------------------
@@ -55,6 +55,15 @@ and it will not be included in the build of your game. It's only used in the edi
  Version History
 -----------------
 
+3.6.5:
+- NEW: Added a way to show the transform gizmo without disabling the drag handles (NGUI->Options).
+- NEW: Added an "onCenter" notification to UICenterOnChild.
+- FIX: Drag & drop example wasn't working properly due to a missed line in UICamera.
+- FIX: UIToggle.value will now return the starting state if the toggle has not yet been activated.
+- FIX: WP8/iOS UIInput fix, and force the keyboard to show up when it's in a 'password' mode.
+- FIX: Flash compilation fixes.
+- FIX: Nicki's optimizations.
+
 3.6.4:
 - NEW: Added the way to set the label alignment for popup lists.
 - NEW: EventDelegate.Add(list, callback) now returns an EventDelegate to work with.
@@ -64,6 +73,8 @@ and it will not be included in the build of your game. It's only used in the edi
 - FIX: Nested anchors set to update in OnEnable will now work as expected when the hierarchy gets re-enabled.
 - FIX: Unified inspector look can now be modified properly.
 - FIX: Switching from 3D to 2D UI will now remove the 3D rigidbody.
+- FIX: Drag & drop example wasn't working properly due to a missed line in UICamera. (3.6.4b)
+- FIX: UIToggle.value will now return the starting state if the toggle has not yet been activated (3.6.4b)
 
 3.6.3
 - NEW: Added onFinished and Finish() to the Typewriter script.

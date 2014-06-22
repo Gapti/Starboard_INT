@@ -6,9 +6,27 @@ public class StorageSlotMaker : MonoBehaviour {
 	public UIGrid StorageGrid;
 	public UILabel TitleLabel;
 	public GameObject StorageSlotTemplatePrefab;
+	private ItemStorage _itemStorage;
+
+	private ItemStorage SetItemStorage
+	{
+		set
+		{
+			_itemStorage = value;
+		}
+	}
+
+	public void CloseMyWindow()
+	{
+		_itemStorage.ToggleMyGUI ();
+		RightClickManager.instance.Clear ();
+	}
 
 	public void BuildSlots(int SlotAmount, ItemStorage storage, string windowTitle)
 	{
+
+		SetItemStorage = storage;
+
 		for(int a = 0; a < SlotAmount; a++)
 		{
 			TitleLabel.text = windowTitle;
