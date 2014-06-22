@@ -223,7 +223,14 @@ static public class NGUIMenu
 
 	[MenuItem("NGUI/Create/2D UI", true)]
 	[MenuItem("Assets/NGUI/Create 2D UI", true, 1)]
-	static bool Create2Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || !UICamera.list[0].camera.isOrthoGraphic; }
+	static bool Create2Da ()
+	{
+		if (UIRoot.list.Count == 0 || UICamera.list.size == 0) return true;
+		foreach (UICamera c in UICamera.list)
+			if (NGUITools.GetActive(c) && c.camera.isOrthoGraphic)
+				return false;
+		return true;
+	}
 
 	[MenuItem("NGUI/Create/3D UI", false, 6)]
 	[MenuItem("Assets/NGUI/Create 3D UI", false, 1)]
@@ -231,7 +238,14 @@ static public class NGUIMenu
 
 	[MenuItem("NGUI/Create/3D UI", true)]
 	[MenuItem("Assets/NGUI/Create 3D UI", true, 1)]
-	static bool Create3Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || UICamera.list[0].camera.isOrthoGraphic; }
+	static bool Create3Da ()
+	{
+		if (UIRoot.list.Count == 0 || UICamera.list.size == 0) return true;
+		foreach (UICamera c in UICamera.list)
+			if (NGUITools.GetActive(c) && !c.camera.isOrthoGraphic)
+				return false;
+		return true;
+	}
 
 #endregion
 #region Attach
@@ -446,6 +460,22 @@ static public class NGUIMenu
 
 #endregion
 #region Options
+
+	[MenuItem("NGUI/Options/Transform Move Gizmo/Turn On", false, 10)]
+	static public void TurnGizmosOn ()
+	{
+		NGUISettings.showTransformHandles = true;
+		NGUIEditorTools.HideMoveTool(false);
+	}
+
+	[MenuItem("NGUI/Options/Transform Move Gizmo/Turn On", true, 10)]
+	static public bool TurnGizmosOnCheck () { return !NGUISettings.showTransformHandles; }
+
+	[MenuItem("NGUI/Options/Transform Move Gizmo/Turn Off", false, 10)]
+	static public void TurnGizmosOff () { NGUISettings.showTransformHandles = false; }
+
+	[MenuItem("NGUI/Options/Transform Move Gizmo/Turn Off", true, 10)]
+	static public bool TurnGizmosOffCheck () { return NGUISettings.showTransformHandles; }
 
 	[MenuItem("NGUI/Options/Handles/Turn On", false, 10)]
 	static public void TurnHandlesOn () { UIWidget.showHandlesWithMoveTool = true; }
