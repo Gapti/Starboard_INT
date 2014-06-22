@@ -6,6 +6,7 @@ public class StorageSlotMaker : MonoBehaviour {
 	public UIGrid StorageGrid;
 	public UILabel TitleLabel;
 	public GameObject StorageSlotTemplatePrefab;
+	public UILabel MoneyLabel;
 	private ItemStorage _itemStorage;
 
 	private ItemStorage SetItemStorage
@@ -38,6 +39,11 @@ public class StorageSlotMaker : MonoBehaviour {
 			s.inventory = storage;
 
 		}
+	}
+
+	public void AddMoneyText()
+	{
+		MoneyLabel.enabled = true;
 	}
 
 }

@@ -76,8 +76,6 @@ public class Equipment : MonoBehaviour {
 		{
 			SlotType s = (SlotType)i;
 
-			print (s + " " + item.Slot);
-
 			if(item.Slot == s)
 			{
 				items[i - 1] = item;

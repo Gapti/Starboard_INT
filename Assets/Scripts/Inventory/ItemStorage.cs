@@ -44,7 +44,6 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 		Items[3] = Database.Get(ItemType.Misc, 0);
 		Items[4] = Database.Get(ItemType.Misc, 0);
 
-		//ToggleMyGUI(GUIGroup);
 	}
 
 
@@ -68,6 +67,11 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 		_GUIRef = NGUITools.AddChild(GUIRoot, StoragePrefab);
 		StorageSlotMaker s = _GUIRef.GetComponent<StorageSlotMaker>();
 		s.BuildSlots(MaxSlots, this, StorageName);
+
+		if (this.gameObject.tag == "MainPlayer") 
+		{
+			s.AddMoneyText();
+		}
 	}
 	
 	public bool Additem(Item item)
@@ -156,26 +160,5 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 
 
 	public Item GetItem (int slot) { return (slot < Items.Length) ? Items[slot] : null; }
-
-	void Update()
-	{
-//		if(Input.GetKeyDown(KeyCode.I))
-//		{
-//			if(_showGUI)
-//			{
-//
-//				Component[] components  = GetComponents<Component>();
-//
-//				foreach(Component component in components)
-//				{
-//					var temp = component as IToggleGUI;
-//					if(temp != null) temp.ToggleMyGUI(GUIGroups.Inventory);
-//				}
-//			}
-//			else if(PlayersInventory)
-//			{
-//				ToggleMyGUI(GUIGroups.Inventory);
-//			}
-//		}
-	}
+	
 }
