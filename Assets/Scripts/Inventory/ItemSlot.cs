@@ -106,23 +106,37 @@ public abstract class ItemSlot : MonoBehaviour {
 	public void Equip()
 	{
 		StorageSlot s = this as StorageSlot;
+
 		if (s != null) 
 		{
-			Equipment e = s.inventory.gameObject.GetComponent<Equipment>();
+			Equipment e = s.inventory.gameObject.GetComponent<Equipment> ();
 
-			if (e.RightClickEquip(item)) 
+			if (e.RightClickEquip (item)) 
 			{
-				Replace(null);
-				ClearDraggedItem();
-				UpdateCursor();
+
+				Replace (null);
+				ClearDraggedItem ();
+				UpdateCursor ();
 			}
 		}
+	}
 		
+	public void Unequip()
+	{
+		EquipmentSlot e = this as EquipmentSlot;
 
+		if (e != null)
+		{
+			ItemStorage s = e.equipment.gameObject.GetComponent<ItemStorage>();
 
-
+			if(s.Additem(item))
+			{
+				Replace(null);
+			}
+		}
 	}
 
+	
 	public void DropItem ()
 	{
 		Replace (null);
