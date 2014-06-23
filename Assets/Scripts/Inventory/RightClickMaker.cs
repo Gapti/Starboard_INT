@@ -130,7 +130,8 @@ public class RightClickMaker : MonoBehaviour {
 
 	void SetMisc (ItemSlot itemSlot)
 	{
-		throw new System.NotImplementedException ();
+		EquipButton.SetActive(false);
+		UnequipButton.SetActive(false);
 	}
 
 	void SetQuest (ItemSlot itemSlot)

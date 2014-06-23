@@ -70,20 +70,11 @@ public class Equipment : MonoBehaviour {
 
 	public bool RightClickEquip(Item item)
 	{
-		int t = (int)SlotType.Weapon + 1;
 
-		for (int i = 1; i < t; i++) 
+		if (item.Slot != SlotType.None && (int)item.Slot <= (int)SlotType.Weapon && items[(int)item.Slot -1] == null) 
 		{
-			SlotType s = (SlotType)i;
-
-			if(item.Slot == s)
-			{
-				if(items[i - 1] == null)
-				{
-					items[i - 1] = item;
-					return true;
-				}
-			}
+			items[(int)item.Slot -1] = item;
+			return true;
 		}
 
 		return false;
