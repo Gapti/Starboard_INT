@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 
 /// <summary>
@@ -7,6 +8,9 @@ using System.Collections;
 /// </summary>
 [System.Serializable]
 public class Currency : MonoBehaviour {
+
+	public static event Action<int> OnMoneyChange;
+
 	// Current money total
 	private static int money = 0;
 	public static int Money {
@@ -14,8 +18,13 @@ public class Currency : MonoBehaviour {
 			return money;
 		}
 		set	{
-			money = value;
-				}
+			if(value != money && OnMoneyChange != null)
+			{
+				OnMoneyChange(value);
+			}
+
+				money = value;
+			}
 	}
 	
 
