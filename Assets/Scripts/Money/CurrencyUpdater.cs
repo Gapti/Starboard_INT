@@ -12,6 +12,6 @@ public class CurrencyUpdater : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		MoneyLabel.text =  "100000 Troquer" ;
+		MoneyLabel.text = Currency.Money.ToString() + " Troquer" ;
 	}
 }

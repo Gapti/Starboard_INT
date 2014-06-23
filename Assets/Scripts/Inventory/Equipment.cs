@@ -78,8 +78,11 @@ public class Equipment : MonoBehaviour {
 
 			if(item.Slot == s)
 			{
-				items[i - 1] = item;
+				if(items[i - 1] == null)
+				{
+					items[i - 1] = item;
 					return true;
+				}
 			}
 		}
 
