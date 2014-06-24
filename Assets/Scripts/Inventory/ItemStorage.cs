@@ -158,6 +158,20 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 		return -1;
 	}
 
+	public void Split(Item item, int pos, int amount)
+	{
+		int NewItemStackAmount = amount;
+		int OldItemStackAmount = Items [pos].StackAmount - amount;
+
+		Item SplitItem = item.Clone ();
+		SplitItem.StackAmount = NewItemStackAmount;
+
+		if (Additem (SplitItem)) 
+		{
+			Items[pos].StackAmount = OldItemStackAmount;
+		}
+	}
+
 
 	public Item GetItem (int slot) { return (slot < Items.Length) ? Items[slot] : null; }
 	

@@ -91,4 +91,16 @@ public class RightClickManager : MonoBehaviour {
 		}
 	}
 
+	public void ClearSplitBox()
+	{
+		NGUITools.Destroy (_tempSplitBox);
+	}
+
+	public void Split(int number)
+	{
+		_itemSlot.Split (number);
+		ClearSplitBox ();
+		Clear ();
+	}
+
 }

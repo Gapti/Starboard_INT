@@ -144,6 +144,16 @@ public abstract class ItemSlot : MonoBehaviour {
 		UpdateCursor();
 	}
 
+	public void Split(int amount)
+	{
+		StorageSlot s = this as StorageSlot;
+
+		if (s != null) 
+		{
+			s.inventory.Split(item,s.SlotID,amount);
+		}
+	}
+
 	void OnDrag(Vector2 delta)
 	{
 

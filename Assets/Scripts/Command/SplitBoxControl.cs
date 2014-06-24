@@ -43,4 +43,16 @@ public class SplitBoxControl : MonoBehaviour {
 		SplitNumberLabel.text = _SplitAmount.ToString();
 
 	}
+
+	public void OK()
+	{
+		if(_SplitAmount > 0)
+		RightClickManager.instance.Split (_SplitAmount);
+
+	}
+
+	public void Cancel()
+	{
+		RightClickManager.instance.ClearSplitBox ();
+	}
 }
