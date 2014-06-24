@@ -6,8 +6,11 @@ public class RightClickManager : MonoBehaviour {
 	public static RightClickManager instance;
 
 	public GameObject RightClickPrefab;
+	public GameObject SplitPrefab;
 
 	private GameObject _tempRightClick;
+	private GameObject _tempSplitBox;
+
 	private ItemSlot _itemSlot;
 
 	private Camera _camera;
@@ -71,4 +74,21 @@ public class RightClickManager : MonoBehaviour {
 		_itemSlot.Unequip ();
 		Clear ();
 	}
+
+	public void Split()
+	{
+		Vector3 pos = Input.mousePosition;
+		
+		pos.x = Mathf.Clamp01(pos.x / Screen.width);
+		pos.y = Mathf.Clamp01(pos.y / Screen.height);
+		
+		if(_tempSplitBox == null)
+		{
+			_tempSplitBox = NGUITools.AddChild(this.gameObject.transform.parent.gameObject, SplitPrefab);
+			_tempSplitBox.transform.position = _camera.ViewportToWorldPoint(pos);
+			SplitBoxControl m = _tempSplitBox.GetComponent<SplitBoxControl>();
+			m.MaxSplitAmount = _itemSlot.item.StackAmount;
+		}
+	}
+
 }
