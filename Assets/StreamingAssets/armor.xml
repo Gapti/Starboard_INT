@@ -10,7 +10,7 @@
     <Atlas>UIElements</Atlas>
     <ItemSprite>sand</ItemSprite>
     <Description>This is a Vest</Description>
-    <Slot>Chest</Slot>
+    <Slot>Helm</Slot>
     <StackAmount>1</StackAmount>
     <Category>LightArmor</Category>
     <ArmorValue>10</ArmorValue>

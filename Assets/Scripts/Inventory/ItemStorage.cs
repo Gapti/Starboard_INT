@@ -27,11 +27,11 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 	public GameObject StoragePrefab;
 	public ItemDataBase Database;
 	const GUIGroups GUIGroup = GUIGroups.Inventory;
-
+	
 	public Item[] Items;
 
 	private GameObject _GUIRef;
-	
+
 
 	void Start()
 	{

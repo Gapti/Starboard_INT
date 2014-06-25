@@ -10,7 +10,7 @@
     <Atlas>UIElements</Atlas>
     <ItemSprite>ps2_gun</ItemSprite>
     <Description>A laser gun</Description>
-    <Slot>Hands</Slot>
+    <Slot>Chest</Slot>
     <StackAmount>1</StackAmount>
     <MinDamage>2</MinDamage>
     <MaxDamage>2</MaxDamage>
