@@ -8,6 +8,8 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Devbris_R3_1
+    4300002: Devbris_R3_1_001
+    6400000: //RootNode
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -30,7 +32,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 1
