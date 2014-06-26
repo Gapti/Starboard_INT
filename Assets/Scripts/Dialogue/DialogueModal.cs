@@ -18,7 +18,7 @@ public class DialogueModal : MonoBehaviour {
 		// TODO: Change how we want to start an NPC conversation
 
 		// Left click on NPC starts dialogue
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButtonDown(0) && gameObject.renderer.isVisible) {
 			// Raycast from camera to mouse position
 			RaycastHit hitInfo;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
