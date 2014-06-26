@@ -1,8 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// A modal dialogue. Gets triggered when tied object is clicked.
+/// </summary>
+/// <example>
+/// Drag onto an NPC GameObject and choose the correct dialogue in the editor.
+/// </example>
 public class DialogueModal : MonoBehaviour {
-	
+
+	// ID of the Dialoguer dialogue
 	public DialoguerDialogues dialogue;
 
 	// Update is called once per frame

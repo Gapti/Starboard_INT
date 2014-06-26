@@ -71,6 +71,39 @@ namespace DialoguerEditor{
 			AssetDatabase.Refresh();
 		}
 		
+		public static void merge(DialogueEditorMasterObject newData)
+		{
+			if (data == null || newData == null) {
+				Debug.LogWarning("Data is empty, not merging.");
+				return;
+			}
+
+			// Start IDs at the end of previous IDs
+			int id = __data.data.dialogues.Count;
+
+			// Merge
+			for (int newIndex = 0; newIndex < newData.dialogues.Count; newIndex++) {
+				DialogueEditorDialogueObject newDlg = newData.dialogues[newIndex];
+				bool match = false;
+				
+				for (int oldIndex = 0; oldIndex < __data.data.dialogues.Count; oldIndex++) {
+					DialogueEditorDialogueObject oldDlg = __data.data.dialogues[oldIndex];
+
+					// On name match, merge
+					if (oldDlg.name == newDlg.name) {
+						__data.data.dialogues[oldIndex] = newData.dialogues[newIndex];
+						match = true;
+					}
+				}
+				
+				// No match, append it to the list
+				if (!match) {
+					newDlg.id = id++;
+					__data.data.dialogues.Add(newDlg);
+				}
+			}
+		}
+		
 		[MenuItem("Tools/Dialoguer/Force Load Dialogues", false, 1001)]
 		public static void load()
 		{
@@ -86,6 +119,7 @@ namespace DialoguerEditor{
 		public static void saveXml(){
 
 			string path = EditorUtility.SaveFilePanel("Export XML", "", "dialoguer_data_xml.xml", "xml");
+			if (path.Length < 1) return;
 
 			XmlSerializer serializer = new XmlSerializer(typeof(DialogueEditorMasterObject));
 			TextWriter textWriter = new StreamWriter(path);
@@ -105,6 +139,22 @@ namespace DialoguerEditor{
 			data = (DialogueEditorMasterObject)deserializer.Deserialize(textReader);
 			textReader.Close();
 
+			save();
+		}
+
+		[MenuItem("Tools/Dialoguer/Merge with XML", false, 6000)]
+		public static void loadMergeXml(){
+			
+			string path = EditorUtility.OpenFilePanel("Import (Merge) Dialogue XML", "", "xml");
+			if (path.Length < 1) return;
+			
+			XmlSerializer deserializer = new XmlSerializer(typeof(DialogueEditorMasterObject));
+			TextReader textReader = new StreamReader(path);
+
+			DialogueEditorMasterObject d = (DialogueEditorMasterObject)deserializer.Deserialize(textReader);
+			textReader.Close();
+
+			merge(d);
 			save();
 		}
 

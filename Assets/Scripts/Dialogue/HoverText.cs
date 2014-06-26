@@ -2,6 +2,12 @@
 using System.Collections;
 
 
+/// <summary>
+/// Hover text (HUD like).
+/// </summary>
+/// <example>
+/// Drag the script onto a character's GameObject, setup the
+/// </example>
 [RequireComponent(typeof(Collider))]
 public class HoverText : MonoBehaviour {
 
