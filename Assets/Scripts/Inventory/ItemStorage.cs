@@ -27,22 +27,24 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 	public GameObject StoragePrefab;
 	public ItemDataBase Database;
 	const GUIGroups GUIGroup = GUIGroups.Inventory;
-	
+
+	[HideInInspector]
 	public Item[] Items;
 
+	public int[] StartingItemIDs;
+	public ItemType[] StartingItemTypes;
+	
 	private GameObject _GUIRef;
 
 
 	void Start()
 	{
-
 		Items = new Item[MaxSlots];
 
-		Items[1] = Database.Get(ItemType.LegacyWeapon, 0);
-		Items[2] = Database.Get(ItemType.LaserWeapon, 0);
-
-		Items[3] = Database.Get(ItemType.Misc, 0);
-		Items[4] = Database.Get(ItemType.Misc, 0);
+		for (int i = 0; i < StartingItemIDs.Length && i < StartingItemTypes.Length; i++) 
+		{
+			Items[i] = Database.Get (StartingItemTypes[i], StartingItemIDs[i]);
+		}
 
 	}
 
