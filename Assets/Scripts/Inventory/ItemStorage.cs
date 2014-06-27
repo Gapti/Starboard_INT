@@ -46,9 +46,13 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 	void Start()
 	{
 		// Setup starting items
-		for (int i = 0; i < StartingItemIDs.Length && i < StartingItemTypes.Length; i++) 
+
+		if (StartingItemIDs.Length != 0 || StartingItemTypes.Length != 0)
 		{
-			Items[i] = Database.Get (StartingItemTypes[i], StartingItemIDs[i]);
+			for (int i = 0; i < StartingItemIDs.Length && i < StartingItemTypes.Length; i++) 
+			{
+				Items [i] = Database.Get (StartingItemTypes [i], StartingItemIDs [i]);
+			}
 		}
 
 		// Build inventory slots
