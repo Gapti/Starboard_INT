@@ -19,10 +19,10 @@ public class HoverText : MonoBehaviour {
 	public float fadeOut = 0.5f;
 
 	// NGUI root object name
-	public string guiRootObjectName = "Dialogue Window";
+	public string guiRootObjectName = "UI Root";
 
 	// Offset in world space coords
-	public float yOffset = 0.1f; 
+	public float yOffset = 0.0f; 
 
 	// Window object
 	private GameObject window;
