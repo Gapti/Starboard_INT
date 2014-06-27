@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Equipment : MonoBehaviour {
@@ -7,7 +7,7 @@ public class Equipment : MonoBehaviour {
 	public GameObject EquipmentPrefab;
 	public GameObject _GUIRef;
 	private bool _showGUI = false;
-	const GUIGroups GUIGroup = GUIGroups.Charactor;
+	const GUIGroups GUIGroup = GUIGroups.Character;
 
 	void Start()
 	{

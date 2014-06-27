@@ -7,7 +7,7 @@ public enum GUIGroups
 	Inventory,
 	MiniMap,
 	Journal,
-	Charactor,
+	Character,
 	Menu
 }
 
@@ -19,8 +19,6 @@ public interface IToggleGUI
 [System.Serializable]
 public class ItemStorage : MonoBehaviour, IToggleGUI {
 	
-	private bool _showGUI = false;
-
 	public int MaxSlots;
 	public string StorageName = "Inventory";
 	public bool PlayersInventory;
@@ -37,45 +35,38 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 	private GameObject _GUIRef;
 
 
+	void Awake() {
+		GameObject GUIRoot = GameObject.FindGameObjectWithTag("UIRoot");
+		_GUIRef = NGUITools.AddChild(GUIRoot, StoragePrefab);
+		
+		Items = new Item[MaxSlots];
+	}
+
+
 	void Start()
 	{
-		Items = new Item[MaxSlots];
-
+		// Setup starting items
 		for (int i = 0; i < StartingItemIDs.Length && i < StartingItemTypes.Length; i++) 
 		{
 			Items[i] = Database.Get (StartingItemTypes[i], StartingItemIDs[i]);
 		}
 
-	}
-
-
-	public void ToggleMyGUI ()
-	{
-		if(_showGUI)
-		{
-			NGUITools.Destroy(_GUIRef);
-		}
-		else
-		{
-			MakeGUI();
-		}
-
-		_showGUI =! _showGUI;
-	}
-
-	void MakeGUI ()
-	{
-		GameObject GUIRoot = GameObject.FindGameObjectWithTag("UIRoot");
-		_GUIRef = NGUITools.AddChild(GUIRoot, StoragePrefab);
+		// Build inventory slots
 		StorageSlotMaker s = _GUIRef.GetComponent<StorageSlotMaker>();
 		s.BuildSlots(MaxSlots, this, StorageName);
-
+		
 		if (this.gameObject.tag == "MainPlayer") 
 		{
 			s.AddMoneyText();
 		}
 	}
-	
+
+	public void ToggleMyGUI ()
+	{
+		_GUIRef.SetActive(!_GUIRef.activeSelf);
+	}
+
+
 	public bool Additem(Item item)
 	{
 		for (int i = 0; i < Items.Length; i++) 
@@ -147,6 +138,7 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 		
 	}
 
+
 	int CheckForSpace (Item item)
 	{
 		for (int a = 0; a < this.Items.Length; a++) 
@@ -159,6 +151,7 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 		
 		return -1;
 	}
+
 
 	public void Split(Item item, int pos, int amount)
 	{
