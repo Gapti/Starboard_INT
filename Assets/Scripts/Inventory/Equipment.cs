@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Equipment : MonoBehaviour {
@@ -7,7 +7,7 @@ public class Equipment : MonoBehaviour {
 	public GameObject EquipmentPrefab;
 	public GameObject _GUIRef;
 	private bool _showGUI = false;
-	const GUIGroups GUIGroup = GUIGroups.Charactor;
+	const GUIGroups GUIGroup = GUIGroups.Character;
 
 	void Start()
 	{
@@ -70,19 +70,11 @@ public class Equipment : MonoBehaviour {
 
 	public bool RightClickEquip(Item item)
 	{
-		int t = (int)SlotType.Weapon + 1;
 
-		for (int i = 1; i < t; i++) 
+		if (item.Slot != SlotType.None && (int)item.Slot <= (int)SlotType.Weapon && items[(int)item.Slot -1] == null) 
 		{
-			SlotType s = (SlotType)i;
-
-			print (s + " " + item.Slot);
-
-			if(item.Slot == s)
-			{
-				items[i - 1] = item;
-					return true;
-			}
+			items[(int)item.Slot -1] = item;
+			return true;
 		}
 
 		return false;

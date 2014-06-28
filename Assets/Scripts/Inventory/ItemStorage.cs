@@ -7,7 +7,7 @@ public enum GUIGroups
 	Inventory,
 	MiniMap,
 	Journal,
-	Charactor,
+	Character,
 	Menu
 }
 
@@ -19,8 +19,6 @@ public interface IToggleGUI
 [System.Serializable]
 public class ItemStorage : MonoBehaviour, IToggleGUI {
 	
-	private bool _showGUI = false;
-
 	public int MaxSlots;
 	public string StorageName = "Inventory";
 	public bool PlayersInventory;
@@ -28,48 +26,53 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 	public ItemDataBase Database;
 	const GUIGroups GUIGroup = GUIGroups.Inventory;
 
+	[HideInInspector]
 	public Item[] Items;
 
-	private GameObject _GUIRef;
+	public int[] StartingItemIDs;
+	public ItemType[] StartingItemTypes;
 	
+	private GameObject _GUIRef;
+
+
+	void Awake() {
+		GameObject GUIRoot = GameObject.FindGameObjectWithTag("UIRoot");
+		_GUIRef = NGUITools.AddChild(GUIRoot, StoragePrefab);
+		
+		Items = new Item[MaxSlots];
+	}
+
 
 	void Start()
 	{
+		// Setup starting items
 
-		Items = new Item[MaxSlots];
+		if (StartingItemIDs.Length != 0 || StartingItemTypes.Length != 0)
+		{
+			for (int i = 0; i < StartingItemIDs.Length && i < StartingItemTypes.Length; i++) 
+			{
+				Items [i] = Database.Get (StartingItemTypes [i], StartingItemIDs [i]);
+			}
+		}
 
-		Items[1] = Database.Get(ItemType.LegacyWeapon, 0);
-		Items[2] = Database.Get(ItemType.LaserWeapon, 0);
+		// Build inventory slots
+		StorageSlotMaker s = _GUIRef.GetComponent<StorageSlotMaker>();
+		s.BuildSlots(MaxSlots, this, StorageName);
+		
+		if (this.gameObject.tag == "MainPlayer") 
+		{
+			s.AddMoneyText();
+		}
 
-		Items[3] = Database.Get(ItemType.Misc, 0);
-		Items[4] = Database.Get(ItemType.Misc, 0);
-
-		//ToggleMyGUI(GUIGroup);
+		ToggleMyGUI ();
 	}
-
 
 	public void ToggleMyGUI ()
 	{
-		if(_showGUI)
-		{
-			NGUITools.Destroy(_GUIRef);
-		}
-		else
-		{
-			MakeGUI();
-		}
-
-		_showGUI =! _showGUI;
+		_GUIRef.SetActive(!_GUIRef.activeSelf);
 	}
 
-	void MakeGUI ()
-	{
-		GameObject GUIRoot = GameObject.FindGameObjectWithTag("UIRoot");
-		_GUIRef = NGUITools.AddChild(GUIRoot, StoragePrefab);
-		StorageSlotMaker s = _GUIRef.GetComponent<StorageSlotMaker>();
-		s.BuildSlots(MaxSlots, this, StorageName);
-	}
-	
+
 	public bool Additem(Item item)
 	{
 		for (int i = 0; i < Items.Length; i++) 
@@ -141,6 +144,7 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 		
 	}
 
+
 	int CheckForSpace (Item item)
 	{
 		for (int a = 0; a < this.Items.Length; a++) 
@@ -155,27 +159,21 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 	}
 
 
-	public Item GetItem (int slot) { return (slot < Items.Length) ? Items[slot] : null; }
-
-	void Update()
+	public void Split(Item item, int pos, int amount)
 	{
-//		if(Input.GetKeyDown(KeyCode.I))
-//		{
-//			if(_showGUI)
-//			{
-//
-//				Component[] components  = GetComponents<Component>();
-//
-//				foreach(Component component in components)
-//				{
-//					var temp = component as IToggleGUI;
-//					if(temp != null) temp.ToggleMyGUI(GUIGroups.Inventory);
-//				}
-//			}
-//			else if(PlayersInventory)
-//			{
-//				ToggleMyGUI(GUIGroups.Inventory);
-//			}
-//		}
+		int NewItemStackAmount = amount;
+		int OldItemStackAmount = Items [pos].StackAmount - amount;
+
+		Item SplitItem = item.Clone ();
+		SplitItem.StackAmount = NewItemStackAmount;
+
+		if (Additem (SplitItem)) 
+		{
+			Items[pos].StackAmount = OldItemStackAmount;
+		}
 	}
+
+
+	public Item GetItem (int slot) { return (slot < Items.Length) ? Items[slot] : null; }
+	
 }

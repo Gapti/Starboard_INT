@@ -7,10 +7,10 @@
     <MaxStack>0</MaxStack>
     <Type>MagneticWeapon</Type>
     <ItemGameObject />
-    <Atlas />
-    <ItemSprite />
+    <Atlas>UIElements</Atlas>
+    <ItemSprite>character</ItemSprite>
     <Description />
-    <Slot>None</Slot>
+    <Slot>Helm</Slot>
     <StackAmount>1</StackAmount>
     <MinDamage>0</MinDamage>
     <MaxDamage>0</MaxDamage>
