@@ -63,6 +63,8 @@ public class ItemStorage : MonoBehaviour, IToggleGUI {
 		{
 			s.AddMoneyText();
 		}
+
+		ToggleMyGUI ();
 	}
 
 	public void ToggleMyGUI ()
